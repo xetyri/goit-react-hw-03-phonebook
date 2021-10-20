@@ -9,13 +9,28 @@ import shortid from "shortid";
 class App extends Component {
   state = {
     contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
+      { id: "id-1", name: "Rosie Simpson", number: "380950254596" },
+      { id: "id-2", name: "Hermione Kline", number: "380950254436" },
+      { id: "id-3", name: "Eden Clements", number: "380950256456" },
+      { id: "id-4", name: "Annie Copeland", number: "380950252276" },
     ],
     filter: "",
   };
+
+  componentDidMount() {
+    const contact = localStorage.getItem("contacts");
+    const parsedContact = JSON.parse(contact);
+
+    if (parsedContact) {
+      this.setState({ contacts: parsedContact });
+    } else {
+      this.setState(this.state.contacts);
+    }
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+  }
 
   addContact = (contact) => {
     this.state.contacts.some(({ name }) => name === contact.name)
