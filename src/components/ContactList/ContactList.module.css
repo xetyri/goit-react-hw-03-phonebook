@@ -1,0 +1,11 @@
+.elem {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px;
+}
+
+.title {
+  margin-right: 10px;
+}

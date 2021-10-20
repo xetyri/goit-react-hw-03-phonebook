@@ -1,0 +1,8 @@
+.elem {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #8b4513;
+  margin: 15px;
+}
